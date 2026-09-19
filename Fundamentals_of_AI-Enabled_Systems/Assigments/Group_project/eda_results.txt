@@ -1,0 +1,209 @@
+==============================================================================
+LOADING RAW FILES
+==============================================================================
+ratings raw shape: (100000, 4)
+movies  raw shape: (1682, 24)
+users   raw shape: (943, 5)
+
+==============================================================================
+CLEANING
+==============================================================================
+
+ratings missing values:
+ user_id      0
+item_id      0
+rating       0
+timestamp    0
+ratings duplicate rows: 0
+ratings duplicate (user_id,item_id) pairs: 0
+rating value range: 1.0 - 5.0
+rating dtype check -> user_id: int64  item_id: int64  rating: float64
+
+movies missing values:
+ release_date             1
+video_release_date    1682
+imdb_url                 3
+movies duplicate item_id: 0
+
+users missing values:
+ user_id       0
+age           0
+gender        0
+occupation    0
+zip_code      0
+users duplicate user_id: 0
+age range: 7 - 73
+gender values: ['M', 'F']
+occupation count: 21
+
+ratings referencing unknown user_id: 0
+ratings referencing unknown item_id: 0
+ratings: (100000, 4)  |  movies: (1682, 25)  |  users: (943, 5)
+
+ratings.dtypes:
+user_id              int64
+item_id              int64
+rating             float64
+timestamp    datetime64[s]
+
+ratings.describe():
+count    100000.00
+mean          3.53
+std           1.13
+min           1.00
+25%           3.00
+50%           4.00
+75%           4.00
+max           5.00
+
+duplicates removed / orphan keys found: 0 (verified above)
+
+users.describe() (age):
+count    943.0
+mean      34.1
+std       12.2
+min        7.0
+25%       25.0
+50%       31.0
+75%       43.0
+max       73.0
+
+gender counts:
+gender
+M    670
+F    273
+
+top 10 occupations:
+occupation
+student          196
+other            105
+educator          95
+administrator     79
+engineer          67
+programmer        66
+librarian         51
+writer            45
+executive         32
+scientist         31
+
+==============================================================================
+RATINGS ANALYSIS
+==============================================================================
+
+rating value counts:
+ rating
+1.0     6110
+2.0    11370
+3.0    27145
+4.0    34174
+5.0    21201
+
+ratings per user  - describe():
+ count    943.0
+mean     106.0
+std      100.9
+min       20.0
+25%       33.0
+50%       65.0
+75%      148.0
+max      737.0
+
+ratings per movie - describe():
+ count    1682.0
+mean       59.5
+std        80.4
+min         1.0
+25%         6.0
+50%        27.0
+75%        80.0
+max       583.0
+
+sparsity: 1 - (100000 / (943*1682)) = 0.937
+rating value counts:
+rating
+1.0     6110
+2.0    11370
+3.0    27145
+4.0    34174
+5.0    21201
+
+ratings per user - describe():
+count    943.0
+mean     106.0
+std      100.9
+min       20.0
+25%       33.0
+50%       65.0
+75%      148.0
+max      737.0
+
+ratings per movie - describe():
+count    1682.0
+mean       59.5
+std        80.4
+min         1.0
+25%         6.0
+50%        27.0
+75%        80.0
+max       583.0
+
+matrix sparsity: 0.937  (fraction of the 943x1682 user-item matrix that is empty)
+
+top 10 most-rated movies:
+         n_ratings                          title
+item_id                                          
+50             583               Star Wars (1977)
+258            509                 Contact (1997)
+100            508                   Fargo (1996)
+181            507      Return of the Jedi (1983)
+294            485               Liar Liar (1997)
+286            481    English Patient, The (1996)
+288            478                  Scream (1996)
+1              452               Toy Story (1995)
+300            431           Air Force One (1997)
+121            429  Independence Day (ID4) (1996)
+movie count by genre:
+Drama          725
+Comedy         505
+Action         251
+Thriller       251
+Romance        247
+Adventure      135
+Children's     122
+Crime          109
+Sci-Fi         101
+Horror          92
+War             71
+Mystery         61
+Musical         56
+Documentary     50
+Animation       42
+Western         27
+Film-Noir       24
+Fantasy         22
+unknown          2
+
+average rating by genre:
+Film-Noir      3.922
+War            3.816
+Drama          3.687
+Documentary    3.673
+Mystery        3.638
+Crime          3.632
+Romance        3.622
+Western        3.613
+Animation      3.577
+Sci-Fi         3.561
+Musical        3.521
+Thriller       3.509
+Adventure      3.504
+Action         3.480
+Comedy         3.394
+Children's     3.353
+Horror         3.290
+Fantasy        3.215
+unknown        3.200
+
+saved cleaned CSVs: ratings_clean.csv, movies_clean.csv, users_clean.csv
+saved figures to: C:\Users\Prave\OneDrive\Documents\Phd-Artificial_Intelligence\Fundamentals_of_AI-Enabled_Systems\Assigments\Group_project\figures
+saved combined report to: eda.pdf
