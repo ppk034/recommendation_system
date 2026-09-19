@@ -1,0 +1,28 @@
+# Word documents (reports) - not published
+*.docx
+~$*
+
+# Archives (can contain the .docx reports)
+*.zip
+
+# Python environments and caches
+venv/
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# MovieLens data belongs to GroupLens: re-download with Group_project/download_data.ps1,
+# then re-create the cleaned CSVs by running eda_recsys.ipynb
+Fundamentals_of_AI-Enabled_Systems/Assigments/Group_project/data/
+Fundamentals_of_AI-Enabled_Systems/Assigments/Group_project/*_clean.csv
+
+# Trained model pickle - regenerate by running svd_recommender.ipynb
+*.pkl
+
+# Instructor's assignment brief
+Fundamentals_of_AI-Enabled_Systems/Assigments/Group_project/objective.txt
+
+# Assignments 1 and 2 are kept locally only (not published)
+Fundamentals_of_AI-Enabled_Systems/Assigments/Assignment-01/
+Fundamentals_of_AI-Enabled_Systems/Assigments/Assignment-02/
