@@ -1,0 +1,197 @@
+{
+  "point3_4": {
+    "pct_vs_global": 16.854728094045747,
+    "pct_vs_baseline": 0.8519719943437186,
+    "r2_bias_only": 0.30003787591015185,
+    "r2_full": 0.30868110288483086,
+    "rmse_bias_component": 0.945142062011372
+  },
+  "point12_bootstrap": {
+    "mean_diff": 0.008040034121859378,
+    "ci_lo": 0.006715551842254317,
+    "ci_hi": 0.009368005858610808,
+    "pct_svd_wins": 100.0,
+    "ci_excludes_zero": true
+  },
+  "point6_cold_start": {
+    "n_cold_items": 38,
+    "n_cold_test_ratings": 44,
+    "rmse_cold": 1.004393453017366,
+    "rmse_non_cold": 0.9391697926962808,
+    "popularity_table": {
+      "0 (cold-start)": {
+        "RMSE": 1.0044,
+        "n_test_ratings": 44
+      },
+      "1-10": {
+        "RMSE": 1.0735,
+        "n_test_ratings": 920
+      },
+      "11-50": {
+        "RMSE": 0.9766,
+        "n_test_ratings": 5164
+      },
+      "51-150": {
+        "RMSE": 0.9257,
+        "n_test_ratings": 10535
+      },
+      "150+": {
+        "RMSE": 0.9162,
+        "n_test_ratings": 8337
+      }
+    }
+  },
+  "point7_testset_metric": {
+    "precision_at_10": 0.6216566513491222,
+    "recall_at_10": 0.24970947088228412,
+    "recall_excl_zero": 0.25292806771427917,
+    "n_users": 943,
+    "n_zero_relevant": 12,
+    "precision_at_10_min5": 0.6386383565075785,
+    "recall_at_10_min5": 0.2510064235723344
+  },
+  "point7_full_catalog_metric": {
+    "precision_at_10_all": 0.07295864262990458,
+    "precision_at_10_with_relevant": 0.07389903329752955,
+    "recall_at_10_with_relevant": 0.04111790354402126,
+    "micro_precision": 0.07295864262990456,
+    "micro_recall": 0.04950352568714923,
+    "pct_users_with_relevant": 98.72746553552491
+  },
+  "point9_concentration": {
+    "spearman_bias_freq": 0.3665765766333162,
+    "spearman_pop_freq": 0.2761795711018919,
+    "spearman_bias_pop": 0.2412016400951345,
+    "n_never_recommended": 1564
+  },
+  "point11_config_comparison": [
+    {
+      "Model": "BaselineOnly",
+      "RMSE": 0.9474,
+      "MAE": 0.7511,
+      "Precision@10": 0.9033,
+      "Recall@10": 0.0528,
+      "Coverage %": 2.7,
+      "Intra-list diversity": 0.7194,
+      "Novelty (bits)": 8.89
+    },
+    {
+      "Model": "SVD (default)",
+      "RMSE": 0.9396,
+      "MAE": 0.7408,
+      "Precision@10": 0.884,
+      "Recall@10": 0.0499,
+      "Coverage %": 14.3,
+      "Intra-list diversity": 0.7251,
+      "Novelty (bits)": 9.24
+    },
+    {
+      "Model": "SVD (tuned, Part 1)",
+      "RMSE": 0.9393,
+      "MAE": 0.7428,
+      "Precision@10": 0.739,
+      "Recall@10": 0.0411,
+      "Coverage %": 4.9,
+      "Intra-list diversity": 0.7462,
+      "Novelty (bits)": 9.32
+    },
+    {
+      "Model": "SVD (high reg=0.2)",
+      "RMSE": 0.9499,
+      "MAE": 0.7555,
+      "Precision@10": 0.71,
+      "Recall@10": 0.0392,
+      "Coverage %": 2.7,
+      "Intra-list diversity": 0.7756,
+      "Novelty (bits)": 9.38
+    },
+    {
+      "Model": "SVD (low factors=10)",
+      "RMSE": 0.9415,
+      "MAE": 0.7447,
+      "Precision@10": 0.7175,
+      "Recall@10": 0.039,
+      "Coverage %": 3.7,
+      "Intra-list diversity": 0.7617,
+      "Novelty (bits)": 9.38
+    }
+  ],
+  "point11_rank_agreement": {
+    "spearman_rho": 0.3,
+    "p_value": 0.623837664781073
+  },
+  "point10_fairness": {
+    "gender_t_stat": 5.243429460108595,
+    "gender_p_value": 1.607551787126778e-07,
+    "gender_significant": true,
+    "age_anova_f": 7.407324969416016,
+    "age_anova_p": 5.867691964005987e-06,
+    "age_table": [
+      {
+        "age_group": "<=20",
+        "RMSE": 0.9749,
+        "n": 3076
+      },
+      {
+        "age_group": "21-30",
+        "RMSE": 0.9524,
+        "n": 9857
+      },
+      {
+        "age_group": "31-40",
+        "RMSE": 0.9161,
+        "n": 5927
+      },
+      {
+        "age_group": "41-50",
+        "RMSE": 0.9414,
+        "n": 3798
+      },
+      {
+        "age_group": "51+",
+        "RMSE": 0.8892,
+        "n": 2342
+      }
+    ]
+  },
+  "point13_reproducibility": {
+    "python_version": "3.12.10",
+    "surprise_version": "1.1.5",
+    "pandas_version": "3.0.6",
+    "numpy_version": "2.5.3",
+    "scipy_version": "1.18.1",
+    "sklearn_version": "1.9.1",
+    "seed": 42,
+    "stage1_grid": {
+      "n_factors": [
+        50,
+        100
+      ],
+      "n_epochs": [
+        20,
+        40
+      ],
+      "lr_all": [
+        0.002,
+        0.005
+      ]
+    },
+    "stage2_grid": {
+      "reg_all": [
+        0.02,
+        0.04,
+        0.06,
+        0.1
+      ]
+    },
+    "final_params": {
+      "n_factors": 50,
+      "n_epochs": 20,
+      "lr_all": 0.005,
+      "random_state": 42,
+      "reg_all": 0.06
+    },
+    "train_ratings": 75000,
+    "test_ratings": 25000
+  }
+}
